@@ -47,11 +47,14 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.14</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.1.21f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Flow\Connections\ControlConnection.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Flow\Framework\Variables\IsVariableDefined.cs" />
@@ -995,13 +998,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.VisualScripting.Core.csproj">
-      <Project>{F5F8BBF1-3CDA-BA4C-B071-31FE48D0D0EF}</Project>
-      <Name>Unity.VisualScripting.Core</Name>
+    <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
+      <Project>{C2C829EB-BB64-28E5-91A6-4374A183994B}</Project>
+      <Name>Unity.VisualScripting.Core.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{B3B7D319-CB67-1794-C4EE-FF09E02ECA6B}</Project>
-      <Name>UnityEngine.UI</Name>
+    <ProjectReference Include="UnityEngine.UI.Player.csproj">
+      <Project>{EC07FD42-B1D4-01F6-E125-66C77C46E6DC}</Project>
+      <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

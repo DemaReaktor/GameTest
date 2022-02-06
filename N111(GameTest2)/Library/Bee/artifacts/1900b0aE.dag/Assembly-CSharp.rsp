@@ -318,10 +318,12 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
-"Assets/AutoPanel.cs"
-"Assets/config.cs"
-"Assets/Exit.cs"
-"Assets/MenuGame.cs"
+"Assets/Scripts/AutoPutter.cs"
+"Assets/Scripts/config.cs"
+"Assets/Scripts/CyclicRange.cs"
+"Assets/Scripts/Exit.cs"
+"Assets/Scripts/MenuGame.cs"
+"Assets/Scripts/menuGames/Bacteries.cs"
 -langversion:8.0
 
 /deterministic
