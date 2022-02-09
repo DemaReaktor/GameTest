@@ -7,33 +7,39 @@ using UnityEngine.UI;
 public class MenuGame : MonoBehaviour
 {
     private int score;
-    [SerializeField] private Text scoreText;
-    [SerializeField] private Text gameOverText;
-    [SerializeField] private Text youWinText;
-    [SerializeField] private Button restart;
-    [SerializeField] private Button enotherGame;
-    [SerializeField] private Image image;
+    private bool isPause;
+    public Image image;
+    public EventHandler<int> ChangeScore;
+    public EventHandler ChangeImage;
+    public EventHandler<bool> ChangePauseStatus;
+    public EventHandler<bool> End;
+
     public int Score {
         get => score;
         set {
-            score += value;
+            int past = score;
+            score = value;
             if (score < 0)
                 score = 0;
-            scoreText.text = "score: "+ score.ToString();
+            if(score!=past)
+                ChangeScore?.Invoke(this, score);
         }
     }
+    public bool IsPause { get => isPause; }
     protected virtual void Start() {
         score = 0;
-        scoreText.text ="score: 0";
-        gameOverText.enabled = youWinText.enabled = false;
-
+        isPause = false;
+    }
+    public virtual void Pause() {
+        isPause = !isPause;
+        ChangePauseStatus?.Invoke(this, isPause); 
     }
     protected void UpdateImage(Texture2D texture)
     {
         image.sprite = Sprite.Create(texture, new Rect(new Vector2(), new Vector2(100, 100)), new Vector2(0.5f, 0.5f));
+        ChangeImage?.Invoke(this, EventArgs.Empty);
     }
     protected virtual void Finish(bool isWin=false) {
-        youWinText.enabled = isWin;
-        gameOverText.enabled = !isWin;
+        End?.Invoke(this, isWin);
     }
 }

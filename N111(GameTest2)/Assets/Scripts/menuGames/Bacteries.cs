@@ -4,27 +4,27 @@ using UnityEngine;
 public class Bacteries : MenuGame
 {
     [Range(10, 200)]
-    [SerializeField] private int sizeOfField;
+    [SerializeField] private int sizeOfField=100;
     [Range(0.3f, 40f)]
-    [SerializeField] private int Destinity;
+    [SerializeField] private int Destinity=6;
     [Space]
     [Range(1, 30)]
-    [SerializeField] private uint ourDeleteDistance;
+    [SerializeField] private uint ourDeleteDistance=1;
     [Range(1, 10)]
-    [SerializeField] private uint ourSpeed;
+    [SerializeField] private uint ourSpeed=1;
     [Range(0f, 0.5f)]
-    [SerializeField] private float ourSpawnChance;
+    [SerializeField] private float ourSpawnChance=0.1f;
     [Range(1, 10)]
-    [SerializeField] private uint ourGrow;
+    [SerializeField] private uint ourGrow=1;
     [Space]
     [Range(1, 30)]
-    [SerializeField] private uint enemyDeleteDistance;
+    [SerializeField] private uint enemyDeleteDistance=2;
     [Range(1, 10)]
-    [SerializeField] private uint enemySpeed;
+    [SerializeField] private uint enemySpeed=2;
     [Range(0f, 0.5f)]
-    [SerializeField] private float enemySpawnChance;
+    [SerializeField] private float enemySpawnChance=0.22f;
     [Range(1, 10)]
-    [SerializeField] private uint enemyGrow;
+    [SerializeField] private uint enemyGrow=3;
     private float time;
     private LinkedList<Bacterie> ourBacteries;
     private LinkedList<Bacterie> enemyBacteries;
@@ -63,10 +63,12 @@ public class Bacteries : MenuGame
     }
     private void Update()
     {
-        time += Time.deltaTime;
+        if (!IsPause)
+            time += Time.deltaTime;
         while (time * Destinity >= 1f)
         {
             time -= 1f / Destinity;
+            Score += 1;
 
             //create new bacterie
             //int randomValue = Random.Range(0, 10000);
